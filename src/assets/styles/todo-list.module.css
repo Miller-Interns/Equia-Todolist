@@ -51,26 +51,25 @@ button {
   cursor: pointer;
 }
 
-/* General container for layout */
 .container {
   display: flex;
   flex-direction: row;
-  gap: 20px; /* Space between sidebar and main content */
+  gap: 20px; 
 }
 
-/* Sidebar Section */
+
 
 .sidebar {
   width: 250px;
   padding: 20px;
-  background-color: #181818; /* example background */
+  background-color: #181818; 
 
 }
 
 
 
 .main-content {
-  flex: 1; /* Take up the remaining space */
+  flex: 1; 
   padding: 20px;
   border-radius: 8px;
   background-color: #ffffff;
@@ -84,20 +83,20 @@ button {
   color: #333;
 }
 .hover-category {
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  transition: background-color 0.3s ease, transform 0.3s ease; 
 }
 
 /* Hover effect */
 .hover-category:hover {
-  background-color: #f0f0f0; /* Change background color on hover */
-  transform: scale(1.02); /* Slight zoom effect */
-  cursor: pointer; /* Show pointer cursor */
+  background-color: #f0f0f0; 
+  transform: scale(1.02); 
+  cursor: pointer; 
 }
 
 .todo-list {
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping for multiple cards */
-  gap: 20px; /* Add spacing between cards */
+  flex-wrap: wrap; 
+  gap: 20px; 
 }
 
 .todo-card {

@@ -4,7 +4,7 @@ import type { TodoList } from '../interface/list-type';
 
 export const useTodoStore = defineStore('todo', {
   state: () => ({
-    // Load from localStorage on initialization
+  
     todoLists: JSON.parse(localStorage.getItem('todoLists') || '[]') as TodoList[],
   }),
   actions: {
@@ -16,7 +16,7 @@ export const useTodoStore = defineStore('todo', {
       if (!task) return;
 
       task.task = updatedTask;
-      // No direct localStorage call here—watch handles it
+     
     },
 
     deleteTask(categoryId: number, taskId: number) {
