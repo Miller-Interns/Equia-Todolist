@@ -1,0 +1,152 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+h1, h2, h3 {
+  margin: 0 0 10px 0;
+}
+
+input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: #2e2e2e;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-category-btn {
+  display: flex;
+  align-items: center; 
+  gap: 8px; 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* General container for layout */
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Space between sidebar and main content */
+}
+
+/* Sidebar Section */
+
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  background-color: #181818; /* example background */
+
+}
+
+
+
+.main-content {
+  flex: 1; /* Take up the remaining space */
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.main-content h1 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  color: #333;
+}
+.hover-category {
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect */
+.hover-category:hover {
+  background-color: #f0f0f0; /* Change background color on hover */
+  transform: scale(1.02); /* Slight zoom effect */
+  cursor: pointer; /* Show pointer cursor */
+}
+
+.todo-list {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for multiple cards */
+  gap: 20px; /* Add spacing between cards */
+}
+
+.todo-card {
+  background-color: #2e2e2e;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.todo-add{
+  display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.editable-category {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  cursor: pointer; 
+  transition: color 0.3s ease; 
+}
+
+.editable-category:hover {
+  color: #007bff; 
+}
+
+.icon-pencil {
+  height: 18px; 
+  width: 18px;
+  color: #6c757d; 
+  transition: color 0.3s ease;
+}
+
+.editable-category:hover .icon-pencil {
+  color: #007bff; 
+}
+
+.app-container {
+  display: flex; 
+  min-height: 100vh;
+}
+
