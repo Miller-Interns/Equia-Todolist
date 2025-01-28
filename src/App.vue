@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+  import { RouterLink, RouterView } from 'vue-router';
 </script>
-
-
 <template>
   <div id="app">
     <header>
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/todo-list">Go to App</RouterLink>
+        <RouterLink :to="{ name: 'home' }">Home</RouterLink>
+        <RouterLink :to="{ name: 'todolist' }">Go to App</RouterLink>
       </nav>
     </header>
     <main>
@@ -17,58 +15,49 @@ import { RouterLink, RouterView } from 'vue-router'
   </div>
 </template>
 
-
-
 <style scoped>
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.5;
+    max-height: 100vh;
+    padding: 1rem 0;
+  }
 
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 1.5;
-  max-height: 100vh;
-  padding: 1rem 0;
-}
+  nav a {
+    display: inline-block;
+    padding: 0 1rem;
+    border-left: 1px solid var(--color-border);
+    text-decoration: none;
+  }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-  text-decoration: none;
-}
+  nav a:first-of-type {
+    border: 0;
+  }
 
-nav a:first-of-type {
-  border: 0;
-}
+  nav a.router-link-exact-active {
+    color: var(--color-text);
+  }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
+  nav a.router-link-exact-active:hover {
+    background-color: transparent;
+  }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
+  /*Layout ReviewRouter*/
+  body,
+  #app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
 
-
-
-
-/*Layout ReviewRouter*/
-body, #app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; 
-  margin: 0;
-}
-
-main {
-  flex: 0 0 200px;
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center;
-}
-
-
-
-
+  main {
+    flex: 0 0 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 </style>
