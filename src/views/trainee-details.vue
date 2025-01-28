@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import traineeInfo from '../components/trainee-info.vue'
+  import traineeInfo from '../components/trainee-info.vue';
 </script>
 
 <template>
   <main>
-     <traineeInfo /> 
+    <traineeInfo />
   </main>
 </template>
