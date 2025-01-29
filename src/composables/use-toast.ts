@@ -1,18 +1,16 @@
 import { ref } from 'vue';
+import { ToastType } from '../enums/toast-enum';
 
 interface Toast {
   id: number;
   message: string;
-  type: 'success' | 'error' | 'info';
+  type: ToastType;
 }
 
 const toasts = ref<Toast[]>([]);
 
 export function useToast() {
-  const showToast = (
-    message: string,
-    type: 'success' | 'error' | 'info' = 'success'
-  ) => {
+  const showToast = (message: string, type: ToastType = ToastType.SUCCESS) => {
     const id = Date.now();
     toasts.value.push({ id, message, type });
 

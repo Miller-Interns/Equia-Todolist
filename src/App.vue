@@ -1,12 +1,13 @@
 <script setup lang="ts">
   import { RouterLink, RouterView } from 'vue-router';
+  import { RouteName } from './enums/route-names';
 </script>
 <template>
   <div id="app">
     <header>
       <nav>
-        <RouterLink :to="{ name: 'home' }">Home</RouterLink>
-        <RouterLink :to="{ name: 'todolist' }">Go to App</RouterLink>
+        <RouterLink :to="{ name: RouteName.HOME }">Home</RouterLink>
+        <RouterLink :to="{ name: RouteName.TODOLIST }">Go to App</RouterLink>
       </nav>
     </header>
     <main>

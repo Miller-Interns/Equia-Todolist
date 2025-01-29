@@ -1,6 +1,7 @@
 import { ref } from 'vue';
 import { useTodoStore } from '../../stores/store';
 import { useToast } from '../use-toast';
+import { ToastType } from '@/enums/toast-enum';
 
 export function UseCategory() {
   const todoStore = useTodoStore();
@@ -24,9 +25,9 @@ export function UseCategory() {
         TodoTask: [],
       });
       categoryName.value = '';
-      showToast('Category added successfully!', 'success');
+      showToast('Category added successfully!', ToastType.SUCCESS);
     } else {
-      showToast('Please enter a category name.', 'error');
+      showToast('Please enter a category name.', ToastType.ERROR);
     }
   }
 
@@ -43,13 +44,13 @@ export function UseCategory() {
   function handleEditCategory(newCategoryName: string) {
     if (!selectedCategory.value) return;
 
-    const catObj = todoStore.todoLists.find(
+    const itemCategory = todoStore.todoLists.find(
       (c) => c.idList === selectedCategory.value!.idList
     );
 
-    if (catObj) {
-      catObj.category = newCategoryName;
-      showToast('Category edited successfully!', 'success');
+    if (itemCategory) {
+      itemCategory.category = newCategoryName;
+      showToast('Category edited successfully!', ToastType.SUCCESS);
     }
   }
 
@@ -59,7 +60,7 @@ export function UseCategory() {
 
   function handleDeleteCanceled() {
     showDeleteConfirmation.value = false;
-    showToast('Deletion canceled.', 'info');
+    showToast('Deletion canceled.', ToastType.INFO);
   }
 
   function handleDeleteConfirmed() {
@@ -71,7 +72,7 @@ export function UseCategory() {
 
     if (index !== -1) {
       todoStore.todoLists.splice(index, 1);
-      showToast('Category deleted successfully!', 'success');
+      showToast('Category deleted successfully!', ToastType.SUCCESS);
     }
 
     showDeleteConfirmation.value = false;
