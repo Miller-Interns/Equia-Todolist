@@ -1,23 +1,23 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import traineeInfo from '../views/trainee-details.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import { RouteName } from '../enums/route-names';
+import traineeInfo from '../views/trainee-details.vue';
+import listInfo from '../views/todo-list.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: RouteName.HOME,
       component: traineeInfo,
     },
+
     {
       path: '/todo-list',
-      name: 'todo-list',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/todo-list.vue'),
+      name: RouteName.TODOLIST,
+      component: listInfo,
     },
   ],
-})
+});
 
-export default router
+export default router;

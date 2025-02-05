@@ -1,9 +1,11 @@
 import { ref } from 'vue';
 import { useTodoStore } from '@/stores/store';
-import type { TodoTask } from '@/interface/task-type';
+import type { TodoTask } from '@/types/task-type';
+import { useToast } from '../use-toast';
 
-export function useTaskActions(categoryId: number) {
+export function UseTask(categoryId: number) {
   const todoStore = useTodoStore();
+  const { showToast } = useToast();
 
   const taskName = ref('');
   const showModal = ref(false);
@@ -22,12 +24,14 @@ export function useTaskActions(categoryId: number) {
             isDone: false,
             isDeleted: false,
           });
+          taskName.value = '';
+          showToast('Task added successfully!', 'success');
         }
       });
 
       taskName.value = '';
     } else {
-      alert('ERROR: Enter Task.');
+      showToast('Please enter task name.', 'error');
     }
   }
 
@@ -43,13 +47,17 @@ export function useTaskActions(categoryId: number) {
 
   function toggleComplete(taskId: number, isDone: boolean | undefined) {
     todoStore.toggleTaskDone(categoryId, taskId, isDone ?? false);
+    showToast(
+      isDone ? 'Task marked as complete!' : 'Task marked as incomplete.',
+      'info'
+    );
   }
 
   function handleEditTask(updatedTask: string) {
     if (!selectedTask.value) return;
 
     todoStore.editTask(categoryId, selectedTask.value.idTask, updatedTask);
-    alert(`Task updated: ${updatedTask}`);
+    showToast('Task updated successfully!', 'success');
     closeModal();
   }
 
@@ -57,7 +65,7 @@ export function useTaskActions(categoryId: number) {
     if (!selectedTask.value) return;
 
     todoStore.deleteTask(categoryId, selectedTask.value.idTask);
-    alert('Task deleted!');
+    showToast('Task deleted successfully!', 'success');
     closeModal();
   }
 
